@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
   Sparkles,
-  HelpCircle,
-  Share2,
   Printer,
   ChevronRight,
   Plus,
@@ -13,7 +11,6 @@ import {
   Award,
   TrendingUp,
   AlertCircle,
-  TrendingDown,
   Activity,
   Menu,
   X,
@@ -26,10 +23,7 @@ import {
 } from "lucide-react";
 import { SavedDecision, DecisionReport } from "./types";
 import { AnimatePresence, motion } from "motion/react";
-import DecisionForm, {
-  getTagStyleAndIcon,
-  STANDARD_TAGS,
-} from "./components/DecisionForm";
+import DecisionForm from "./components/DecisionForm";
 import VerdictView from "./components/VerdictView";
 import ProsConsView from "./components/ProsConsView";
 import ComparisonView from "./components/ComparisonView";
@@ -56,7 +50,6 @@ export default function App() {
     "tree",
     "chat",
   ] as const;
-  const [shareSuccess, setShareSuccess] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [deletedDecision, setDeletedDecision] = useState<{
     decision: SavedDecision;
@@ -440,12 +433,6 @@ export default function App() {
     if (parentId) {
       setActiveId(parentId);
     }
-  };
-
-  const handleShare = () => {
-    navigator.clipboard.writeText(window.location.href);
-    setShareSuccess(true);
-    setTimeout(() => setShareSuccess(false), 3000);
   };
 
   const handlePrint = () => {
@@ -851,22 +838,6 @@ export default function App() {
                 </span>
               )
             )}
-            <button
-              onClick={() => setIsCalmMode((prev) => !prev)}
-              className={`px-2 md:px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-0.5 transition-all cursor-pointer ${
-                isCalmMode
-                  ? "bg-emerald-600 text-white hover:bg-emerald-700"
-                  : "border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
-              }`}
-              title={isCalmMode ? "Turn off calm mode" : "Turn on calm mode"}
-              id="calm-mode-toggle"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">
-                {isCalmMode ? "Calm On" : "Calm Mode"}
-              </span>
-              <span className="inline sm:hidden">Calm</span>
-            </button>
             {isComparisonMode
               ? selectedComparisonIds.length > 0 && (
                   <button
@@ -891,25 +862,24 @@ export default function App() {
                       <span className="hidden sm:inline">Print Report</span>
                       <span className="inline sm:hidden">Print</span>
                     </button>
-                    <button
-                      onClick={handleShare}
-                      className={`px-2.5 md:px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-0.5 transition-all cursor-pointer ${
-                        shareSuccess
-                          ? "bg-emerald-600 text-white hover:bg-emerald-700"
-                          : "bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm"
-                      }`}
-                      id="share-report-btn"
-                    >
-                      <Share2 className="w-3.5 h-3.5" />
-                      <span className="hidden sm:inline">
-                        {shareSuccess ? "Copied!" : "Share Link"}
-                      </span>
-                      <span className="inline sm:hidden">
-                        {shareSuccess ? "Copied!" : "Share"}
-                      </span>
-                    </button>
                   </>
                 )}
+            <button
+              onClick={() => setIsCalmMode((prev) => !prev)}
+              className={`px-2 md:px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-0.5 transition-all cursor-pointer ${
+                isCalmMode
+                  ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                  : "border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
+              }`}
+              title={isCalmMode ? "Turn off calm mode" : "Turn on calm mode"}
+              id="calm-mode-toggle"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">
+                {isCalmMode ? "Calm On" : "Calm Mode"}
+              </span>
+              <span className="inline sm:hidden">Calm</span>
+            </button>
           </div>
         </header>
 
