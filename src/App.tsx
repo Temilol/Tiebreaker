@@ -129,8 +129,8 @@ export default function App() {
   const filteredDecisions = savedDecisions.filter((decision) => {
     // 1. Tag filter matching
     if (selectedTagFilter !== "All") {
-      const decisionTag = decision.tag || "Personal";
-      if (decisionTag.toLowerCase() !== selectedTagFilter.toLowerCase()) {
+      const decisionTags = decision.tags || ["Personal"];
+      if (!decisionTags.some(t => t.toLowerCase() === selectedTagFilter.toLowerCase())) {
         return false;
       }
     }
@@ -140,7 +140,8 @@ export default function App() {
       const query = searchQuery.toLowerCase();
       const topicMatches = decision.topic.toLowerCase().includes(query);
       const optionsMatches = decision.options.some((opt) => opt.toLowerCase().includes(query));
-      const tagMatches = (decision.tag || "Personal").toLowerCase().includes(query);
+      const decisionTags = decision.tags || ["Personal"];
+      const tagMatches = decisionTags.some(t => t.toLowerCase().includes(query));
       return topicMatches || optionsMatches || tagMatches;
     }
 
@@ -223,7 +224,7 @@ export default function App() {
     topic: string, 
     options: string[], 
     preferences: string, 
-    tag: string,
+    tags: string[],
     parentId?: string,
     branchedFromOption?: string,
     optionImages?: (string | null)[]
@@ -262,7 +263,7 @@ export default function App() {
           minute: "2-digit",
         }),
         report,
-        tag,
+        tags,
         parentId,
         branchedFromOption,
       };
@@ -308,7 +309,7 @@ export default function App() {
       suggestedTopic: "",
       suggestedOptions: ["", ""],
       suggestedPreferences: "",
-      suggestedTag: activeDecision.tag || "Personal",
+      suggestedTag: activeDecision.tags?.[0] || "Personal",
       isLoading: true,
     });
     setActiveId(null);
@@ -354,7 +355,7 @@ export default function App() {
         suggestedTopic: `Next level choices for: ${optionName}`,
         suggestedOptions: ["", ""],
         suggestedPreferences: `Analyze next implementation steps for "${optionName}" from original topic "${activeDecision.topic}"`,
-        suggestedTag: activeDecision.tag || "Personal",
+        suggestedTag: activeDecision.tags?.[0] || "Personal",
         isLoading: false,
       });
     } finally {
@@ -501,11 +502,11 @@ export default function App() {
             <div className="space-y-1.5" id="sidebar-tags-filter">
               <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Tags</span>
               <div className="flex flex-wrap gap-1.5 max-h-[85px] overflow-y-auto pr-1" id="sidebar-tag-chips">
-                {["All", ...Array.from(new Set(savedDecisions.map(d => (d.tag || "Personal") as string)))].map((tagName: string) => {
+                {["All", ...Array.from(new Set(savedDecisions.flatMap(d => d.tags || ["Personal"])))].map((tagName: string) => {
                   const isActive = selectedTagFilter === tagName;
                   const count = tagName === "All" 
                     ? savedDecisions.length 
-                    : savedDecisions.filter(d => (d.tag || "Personal").toLowerCase() === tagName.toLowerCase()).length;
+                    : savedDecisions.filter(d => (d.tags || ["Personal"]).some(t => t.toLowerCase() === tagName.toLowerCase())).length;
                   
                   return (
                     <button
@@ -591,9 +592,9 @@ export default function App() {
                         <span className="text-[9px] text-slate-500 font-normal">
                           {decision.date}
                         </span>
-                        {decision.tag && (
+                        {decision.tags && decision.tags.length > 0 && (
                           <span className="text-[8px] bg-slate-850 text-slate-400 px-1 rounded border border-slate-750 font-bold tracking-wide uppercase">
-                            {decision.tag}
+                            {decision.tags.join(", ")}
                           </span>
                         )}
                         {decision.parentId && (

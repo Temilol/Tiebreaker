@@ -90,7 +90,7 @@ export default function ComparativeDashboard({
     name: decision.topic.length > 25 ? decision.topic.slice(0, 22) + "..." : decision.topic,
     confidence: decision.report.verdict.confidence,
     fullName: decision.topic,
-    tag: decision.tag || "Personal",
+    tag: decision.tags?.[0] || "Personal",
     winner: decision.report.verdict.recommendedOption,
   }));
 
@@ -206,7 +206,8 @@ export default function ComparativeDashboard({
       >
         {selectedDecisions.map((decision, idx) => {
           const { recommendedOption, confidence, reasoning, keyTradeoff } = decision.report.verdict;
-          const { bg, icon: Icon } = getTagStyleAndIcon(decision.tag || "Personal");
+          const decisionTags = decision.tags || ["Personal"];
+          const firstTagStyle = getTagStyleAndIcon(decisionTags[0] || "Personal");
           const columnAccentColor = chartColors[idx % chartColors.length];
 
           // Calculate some comparison summary stats for this decision
@@ -232,11 +233,18 @@ export default function ComparativeDashboard({
                 </button>
 
                 <div className="flex flex-col gap-2 pr-6">
-                  {decision.tag && (
-                    <span className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[9px] font-bold border w-fit ${bg}`}>
-                      <Icon className="w-3 h-3" />
-                      {decision.tag}
-                    </span>
+                  {decisionTags.length > 0 && (
+                    <div className="flex flex-wrap gap-1">
+                      {decisionTags.map((tag) => {
+                        const { bg, icon: Icon } = getTagStyleAndIcon(tag);
+                        return (
+                          <span key={tag} className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[9px] font-bold border w-fit ${bg}`}>
+                            <Icon className="w-3 h-3" />
+                            {tag}
+                          </span>
+                        );
+                      })}
+                    </div>
                   )}
                   <h4 
                     className="text-sm font-extrabold text-slate-850 dark:text-slate-100 line-clamp-3 leading-snug mt-1"

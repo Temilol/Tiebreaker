@@ -23,7 +23,7 @@ import {
   MicOff,
   AlertCircle,
   Camera,
-  Image as ImageIcon
+  Image as ImageIcon,
 } from "lucide-react";
 
 export const getTagStyleAndIcon = (tagName: string) => {
@@ -31,78 +31,102 @@ export const getTagStyleAndIcon = (tagName: string) => {
   if (name === "career") {
     return {
       bg: "bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-900/50",
-      activeBg: "bg-blue-600 text-white border-blue-600 dark:bg-blue-500 dark:border-blue-500",
-      hoverBg: "hover:bg-blue-100 dark:hover:bg-blue-950/50 text-blue-700 dark:text-blue-400",
-      icon: Briefcase
+      activeBg:
+        "bg-blue-600 text-white border-blue-600 dark:bg-blue-500 dark:border-blue-500",
+      hoverBg:
+        "hover:bg-blue-100 dark:hover:bg-blue-950/50 text-blue-700 dark:text-blue-400",
+      icon: Briefcase,
     };
   }
   if (name === "finance") {
     return {
       bg: "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-900/50",
-      activeBg: "bg-emerald-600 text-white border-emerald-600 dark:bg-emerald-500 dark:border-emerald-500",
-      hoverBg: "hover:bg-emerald-100 dark:hover:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400",
-      icon: DollarSign
+      activeBg:
+        "bg-emerald-600 text-white border-emerald-600 dark:bg-emerald-500 dark:border-emerald-500",
+      hoverBg:
+        "hover:bg-emerald-100 dark:hover:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400",
+      icon: DollarSign,
     };
   }
   if (name === "housing") {
     return {
       bg: "bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-900/50",
-      activeBg: "bg-amber-600 text-white border-amber-600 dark:bg-amber-500 dark:border-amber-500",
-      hoverBg: "hover:bg-amber-100 dark:hover:bg-amber-950/50 text-amber-700 dark:text-amber-400",
-      icon: Home
+      activeBg:
+        "bg-amber-600 text-white border-amber-600 dark:bg-amber-500 dark:border-amber-500",
+      hoverBg:
+        "hover:bg-amber-100 dark:hover:bg-amber-950/50 text-amber-700 dark:text-amber-400",
+      icon: Home,
     };
   }
   if (name === "tech") {
     return {
       bg: "bg-sky-50 dark:bg-sky-950/30 text-sky-700 dark:text-sky-400 border-sky-200 dark:border-sky-900/50",
-      activeBg: "bg-sky-600 text-white border-sky-600 dark:bg-sky-500 dark:border-sky-500",
-      hoverBg: "hover:bg-sky-100 dark:hover:bg-sky-950/50 text-sky-700 dark:text-sky-400",
-      icon: Laptop
+      activeBg:
+        "bg-sky-600 text-white border-sky-600 dark:bg-sky-500 dark:border-sky-500",
+      hoverBg:
+        "hover:bg-sky-100 dark:hover:bg-sky-950/50 text-sky-700 dark:text-sky-400",
+      icon: Laptop,
     };
   }
   if (name === "personal") {
     return {
       bg: "bg-purple-50 dark:bg-purple-950/30 text-purple-700 dark:text-purple-400 border-purple-200 dark:border-purple-900/50",
-      activeBg: "bg-purple-600 text-white border-purple-600 dark:bg-purple-500 dark:border-purple-500",
-      hoverBg: "hover:bg-purple-100 dark:hover:bg-purple-950/50 text-purple-700 dark:text-purple-400",
-      icon: User
+      activeBg:
+        "bg-purple-600 text-white border-purple-600 dark:bg-purple-500 dark:border-purple-500",
+      hoverBg:
+        "hover:bg-purple-100 dark:hover:bg-purple-950/50 text-purple-700 dark:text-purple-400",
+      icon: User,
     };
   }
   if (name === "health") {
     return {
       bg: "bg-rose-50 dark:bg-rose-950/30 text-rose-700 dark:text-rose-400 border-rose-200 dark:border-rose-900/50",
-      activeBg: "bg-rose-600 text-white border-rose-600 dark:bg-rose-500 dark:border-rose-500",
-      hoverBg: "hover:bg-rose-100 dark:hover:bg-rose-950/50 text-rose-700 dark:text-rose-400",
-      icon: Heart
+      activeBg:
+        "bg-rose-600 text-white border-rose-600 dark:bg-rose-500 dark:border-rose-500",
+      hoverBg:
+        "hover:bg-rose-100 dark:hover:bg-rose-950/50 text-rose-700 dark:text-rose-400",
+      icon: Heart,
     };
   }
   if (name === "travel") {
     return {
       bg: "bg-teal-50 dark:bg-teal-950/30 text-teal-700 dark:text-teal-400 border-teal-200 dark:border-teal-900/50",
-      activeBg: "bg-teal-600 text-white border-teal-600 dark:bg-teal-500 dark:border-teal-500",
-      hoverBg: "hover:bg-teal-100 dark:hover:bg-teal-950/50 text-teal-700 dark:text-teal-400",
-      icon: Compass
+      activeBg:
+        "bg-teal-600 text-white border-teal-600 dark:bg-teal-500 dark:border-teal-500",
+      hoverBg:
+        "hover:bg-teal-100 dark:hover:bg-teal-950/50 text-teal-700 dark:text-teal-400",
+      icon: Compass,
     };
   }
   return {
     bg: "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700",
-    activeBg: "bg-slate-750 text-white border-slate-750 dark:bg-slate-700 dark:border-slate-700",
-    hoverBg: "hover:bg-slate-200 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-300",
-    icon: TagIcon
+    activeBg:
+      "bg-slate-750 text-white border-slate-750 dark:bg-slate-700 dark:border-slate-700",
+    hoverBg:
+      "hover:bg-slate-200 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-300",
+    icon: TagIcon,
   };
 };
 
-export const STANDARD_TAGS = ["Career", "Finance", "Housing", "Tech", "Personal", "Health", "Travel"];
+export const STANDARD_TAGS = [
+  "Career",
+  "Finance",
+  "Housing",
+  "Tech",
+  "Personal",
+  "Health",
+  "Travel",
+];
 
 interface DecisionFormProps {
   onSubmit: (
     topic: string,
     options: string[],
     preferences: string,
-    tag: string,
+    tags: string[],
     parentId?: string,
     branchedFromOption?: string,
-    optionImages?: (string | null)[]
+    optionImages?: (string | null)[],
   ) => void;
   isLoading: boolean;
   branchingData?: {
@@ -121,28 +145,36 @@ interface DecisionFormProps {
 const PRESETS = [
   {
     title: "Career Path Dilemma",
-    topic: "Should I stay at my current stable corporate job or join an early-stage startup?",
+    topic:
+      "Should I stay at my current stable corporate job or join an early-stage startup?",
     options: ["Stay at Corporate Job", "Join Early-Stage Startup"],
-    preferences: "I value learning and ownership but have a mortgage. I want to minimize financial stress while maximizing potential career growth.",
-    tag: "Career"
+    preferences:
+      "I value learning and ownership but have a mortgage. I want to minimize financial stress while maximizing potential career growth.",
+    tag: "Career",
   },
   {
     title: "Buy vs. Rent Home",
-    topic: "Should we rent a modern apartment in the city center or buy a house in the suburbs?",
+    topic:
+      "Should we rent a modern apartment in the city center or buy a house in the suburbs?",
     options: ["Rent City Apartment", "Buy Suburban House"],
-    preferences: "We have a 2-year old child. We love walkable neighborhoods and good food, but want space for a garden and a safe backyard.",
-    tag: "Housing"
+    preferences:
+      "We have a 2-year old child. We love walkable neighborhoods and good food, but want space for a garden and a safe backyard.",
+    tag: "Housing",
   },
   {
     title: "Tech Stack Dilemma",
     topic: "Which framework should our team choose for the new client project?",
     options: ["React SPA with Vite", "Next.js Full-Stack App"],
-    preferences: "The project must be finished in 6 weeks. SEO is extremely critical, but only two out of five developers know Next.js.",
-    tag: "Tech"
-  }
+    preferences:
+      "The project must be finished in 6 weeks. SEO is extremely critical, but only two out of five developers know Next.js.",
+    tag: "Tech",
+  },
 ];
 
-const isSpeechSupported = typeof window !== "undefined" && (!!(window as any).SpeechRecognition || !!(window as any).webkitSpeechRecognition);
+const isSpeechSupported =
+  typeof window !== "undefined" &&
+  (!!(window as any).SpeechRecognition ||
+    !!(window as any).webkitSpeechRecognition);
 
 interface VoiceInputButtonProps {
   onTranscript: (text: string) => void;
@@ -153,7 +185,14 @@ interface VoiceInputButtonProps {
   currentValue?: string;
 }
 
-function VoiceInputButton({ onTranscript, onError, isLoading, tooltip = "Speak to text", id, currentValue }: VoiceInputButtonProps) {
+function VoiceInputButton({
+  onTranscript,
+  onError,
+  isLoading,
+  tooltip = "Speak to text",
+  id,
+  currentValue,
+}: VoiceInputButtonProps) {
   const [isListening, setIsListening] = useState(false);
   const [recognition, setRecognition] = useState<any>(null);
 
@@ -178,7 +217,9 @@ function VoiceInputButton({ onTranscript, onError, isLoading, tooltip = "Speak t
 
   useEffect(() => {
     if (!isSpeechSupported) return;
-    const SpeechRecognitionClass = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    const SpeechRecognitionClass =
+      (window as any).SpeechRecognition ||
+      (window as any).webkitSpeechRecognition;
     const rec = new SpeechRecognitionClass();
     rec.continuous = true;
     rec.interimResults = false;
@@ -208,8 +249,11 @@ function VoiceInputButton({ onTranscript, onError, isLoading, tooltip = "Speak t
     rec.onerror = (event: any) => {
       console.error("Speech recognition error:", event.error);
       const errCallback = onErrorRef.current;
-      
-      const isFatal = event.error === "not-allowed" || event.error === "audio-capture" || event.error === "service-not-allowed";
+
+      const isFatal =
+        event.error === "not-allowed" ||
+        event.error === "audio-capture" ||
+        event.error === "service-not-allowed";
       if (isFatal) {
         shouldBeListeningRef.current = false;
         setIsListening(false);
@@ -217,7 +261,9 @@ function VoiceInputButton({ onTranscript, onError, isLoading, tooltip = "Speak t
 
       if (errCallback) {
         if (event.error === "not-allowed") {
-          errCallback("Microphone access was blocked. Please make sure microphone permission is allowed for this application in your browser's site settings or address bar.");
+          errCallback(
+            "Microphone access was blocked. Please make sure microphone permission is allowed for this application in your browser's site settings or address bar.",
+          );
         } else if (event.error === "no-speech") {
           // Handled gracefully without popping fatal error messages because we will automatically continue
         } else if (event.error === "audio-capture") {
@@ -235,7 +281,10 @@ function VoiceInputButton({ onTranscript, onError, isLoading, tooltip = "Speak t
           initialValueRef.current = currentValueRef.current;
           rec.start();
         } catch (e) {
-          console.error("Failed to auto-restart speech recognition session:", e);
+          console.error(
+            "Failed to auto-restart speech recognition session:",
+            e,
+          );
           setIsListening(false);
         }
       } else {
@@ -295,19 +344,29 @@ function VoiceInputButton({ onTranscript, onError, isLoading, tooltip = "Speak t
   );
 }
 
-export default function DecisionForm({ onSubmit, isLoading, branchingData, onCancelBranching }: DecisionFormProps) {
+export default function DecisionForm({
+  onSubmit,
+  isLoading,
+  branchingData,
+  onCancelBranching,
+}: DecisionFormProps) {
   const [topic, setTopic] = useState("");
   const [options, setOptions] = useState<string[]>(["", ""]);
-  const [optionImages, setOptionImages] = useState<(string | null)[]>([null, null]);
+  const [optionImages, setOptionImages] = useState<(string | null)[]>([
+    null,
+    null,
+  ]);
   const [preferences, setPreferences] = useState("");
   const [showPrefs, setShowPrefs] = useState(false);
-  const [tag, setTag] = useState("Personal");
+  const [tags, setTags] = useState<string[]>(["Personal"]);
   const [customTagText, setCustomTagText] = useState("");
   const [speechError, setSpeechError] = useState<string | null>(null);
 
   // Form Mode & Decoder states
-  const [formMode, setFormMode] = useState<"structured" | "voice" | "visual">("structured");
-  
+  const [formMode, setFormMode] = useState<"structured" | "voice" | "visual">(
+    "structured",
+  );
+
   // Voice Dilemma Decoder state
   const [voiceDilemmaTranscript, setVoiceDilemmaTranscript] = useState("");
   const [isDecoding, setIsDecoding] = useState(false);
@@ -318,7 +377,9 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
   const [visualDilemmaImages, setVisualDilemmaImages] = useState<string[]>([]);
   const [visualDilemmaNotes, setVisualDilemmaNotes] = useState("");
   const [isVisualDecoding, setIsVisualDecoding] = useState(false);
-  const [visualDecodingError, setVisualDecodingError] = useState<string | null>(null);
+  const [visualDecodingError, setVisualDecodingError] = useState<string | null>(
+    null,
+  );
 
   const [isDilemmaListening, setIsDilemmaListening] = useState(false);
   const [dilemmaRecognition, setDilemmaRecognition] = useState<any>(null);
@@ -335,7 +396,9 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
   // Speech Recognition for entire spoken dilemma
   useEffect(() => {
     if (!isSpeechSupported) return;
-    const SpeechRecognitionClass = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    const SpeechRecognitionClass =
+      (window as any).SpeechRecognition ||
+      (window as any).webkitSpeechRecognition;
     const rec = new SpeechRecognitionClass();
     rec.continuous = true;
     rec.interimResults = false;
@@ -364,14 +427,19 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
 
     rec.onerror = (event: any) => {
       console.error("Dilemma speech recognition error:", event.error);
-      const isFatal = event.error === "not-allowed" || event.error === "audio-capture" || event.error === "service-not-allowed";
+      const isFatal =
+        event.error === "not-allowed" ||
+        event.error === "audio-capture" ||
+        event.error === "service-not-allowed";
       if (isFatal) {
         dilemmaShouldBeListeningRef.current = false;
         setIsDilemmaListening(false);
       }
 
       if (event.error === "not-allowed") {
-        setSpeechError("Microphone access was blocked. Please make sure microphone permission is allowed for this application.");
+        setSpeechError(
+          "Microphone access was blocked. Please make sure microphone permission is allowed for this application.",
+        );
       } else if (event.error === "audio-capture") {
         setSpeechError("No microphone was found on your device.");
       }
@@ -383,7 +451,10 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
           dilemmaInitialValueRef.current = dilemmaCurrentValueRef.current;
           rec.start();
         } catch (e) {
-          console.error("Failed to auto-restart dilemma speech recognition:", e);
+          console.error(
+            "Failed to auto-restart dilemma speech recognition:",
+            e,
+          );
           setIsDilemmaListening(false);
         }
       } else {
@@ -443,22 +514,34 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
 
       if (!response.ok) {
         const errData = await response.json().catch(() => ({}));
-        throw new Error(errData.error || `Decoding failed with status ${response.status}`);
+        throw new Error(
+          errData.error || `Decoding failed with status ${response.status}`,
+        );
       }
 
       const decoded = await response.json();
-      
+
       setTopic(decoded.topic || "");
-      setOptions(decoded.options && decoded.options.length >= 2 ? decoded.options : ["", ""]);
-      setOptionImages(new Array(decoded.options && decoded.options.length >= 2 ? decoded.options.length : 2).fill(null));
+      setOptions(
+        decoded.options && decoded.options.length >= 2
+          ? decoded.options
+          : ["", ""],
+      );
+      setOptionImages(
+        new Array(
+          decoded.options && decoded.options.length >= 2
+            ? decoded.options.length
+            : 2,
+        ).fill(null),
+      );
       setPreferences(decoded.preferences || "");
       setShowPrefs(!!decoded.preferences);
-      
+
       if (STANDARD_TAGS.includes(decoded.tag)) {
-        setTag(decoded.tag);
+        setTags([decoded.tag]);
         setCustomTagText("");
       } else {
-        setTag("Custom");
+        setTags(["Custom"]);
         setCustomTagText(decoded.tag || "");
       }
 
@@ -467,7 +550,10 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
       setTimeout(() => setShowDecodeSuccessAlert(false), 8000);
     } catch (err: any) {
       console.error("Dilemma decoding error:", err);
-      setDecodingError(err.message || "Failed to decode spoken dilemma. Please check your network or try again.");
+      setDecodingError(
+        err.message ||
+          "Failed to decode spoken dilemma. Please check your network or try again.",
+      );
     } finally {
       setIsDecoding(false);
     }
@@ -475,7 +561,7 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
 
   const handleVisualDilemmaImageUpload = (files: FileList | File[]) => {
     if (!files || files.length === 0) return;
-    
+
     // Process each file (limit to a total of 4 images)
     Array.from(files).forEach((file) => {
       if (!file.type.startsWith("image/")) {
@@ -559,28 +645,35 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
 
       if (!response.ok) {
         const errData = await response.json().catch(() => ({}));
-        throw new Error(errData.error || `Decoding failed with status ${response.status}`);
+        throw new Error(
+          errData.error || `Decoding failed with status ${response.status}`,
+        );
       }
 
       const decoded = await response.json();
 
       setTopic(decoded.topic || "");
-      
-      const parsedOptions = decoded.options && decoded.options.length >= 2 ? decoded.options : ["", ""];
+
+      const parsedOptions =
+        decoded.options && decoded.options.length >= 2
+          ? decoded.options
+          : ["", ""];
       setOptions(parsedOptions);
-      
+
       // Auto-map uploaded photos to the parsed options
-      const mappedImages = parsedOptions.map((_, idx) => visualDilemmaImages[idx] || null);
+      const mappedImages = parsedOptions.map(
+        (_, idx) => visualDilemmaImages[idx] || null,
+      );
       setOptionImages(mappedImages);
-      
+
       setPreferences(decoded.preferences || "");
       setShowPrefs(!!decoded.preferences);
 
       if (STANDARD_TAGS.includes(decoded.tag)) {
-        setTag(decoded.tag);
+        setTags([decoded.tag]);
         setCustomTagText("");
       } else {
-        setTag("Custom");
+        setTags(["Custom"]);
         setCustomTagText(decoded.tag || "");
       }
 
@@ -589,7 +682,10 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
       setTimeout(() => setShowDecodeSuccessAlert(false), 8000);
     } catch (err: any) {
       console.error("Visual dilemma decoding error:", err);
-      setVisualDecodingError(err.message || "Failed to analyze your dilemma images. Please check your network or try again.");
+      setVisualDecodingError(
+        err.message ||
+          "Failed to analyze your dilemma images. Please check your network or try again.",
+      );
     } finally {
       setIsVisualDecoding(false);
     }
@@ -598,11 +694,21 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
   useEffect(() => {
     if (branchingData) {
       setTopic(branchingData.suggestedTopic);
-      setOptions(branchingData.suggestedOptions.length >= 2 ? [...branchingData.suggestedOptions] : ["", ""]);
-      setOptionImages(new Array(branchingData.suggestedOptions.length >= 2 ? branchingData.suggestedOptions.length : 2).fill(null));
+      setOptions(
+        branchingData.suggestedOptions.length >= 2
+          ? [...branchingData.suggestedOptions]
+          : ["", ""],
+      );
+      setOptionImages(
+        new Array(
+          branchingData.suggestedOptions.length >= 2
+            ? branchingData.suggestedOptions.length
+            : 2,
+        ).fill(null),
+      );
       setPreferences(branchingData.suggestedPreferences);
       setShowPrefs(!!branchingData.suggestedPreferences);
-      setTag(branchingData.suggestedTag || "Personal");
+      setTags([branchingData.suggestedTag || "Personal"]);
       setCustomTagText("");
     }
   }, [branchingData]);
@@ -693,44 +799,75 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
     }
   };
 
-  const loadPreset = (preset: typeof PRESETS[0]) => {
+  const loadPreset = (preset: (typeof PRESETS)[0]) => {
     setTopic(preset.topic);
     setOptions([...preset.options]);
     setOptionImages(new Array(preset.options.length).fill(null));
     setPreferences(preset.preferences);
     setShowPrefs(true);
-    setTag(preset.tag);
+    setTags([preset.tag]);
     setCustomTagText("");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const cleanTopic = topic.trim();
-    const cleanOptions = options.map(o => o.trim()).filter(Boolean);
+    const cleanOptions = options.map((o) => o.trim()).filter(Boolean);
 
     if (!cleanTopic) return;
     if (cleanOptions.length < 2) return;
 
-    const finalTag = tag === "Custom" ? (customTagText.trim() || "Other") : tag;
-    
+    const finalTags = tags.includes("Custom")
+      ? [
+          ...tags.filter((t) => t !== "Custom"),
+          ...(customTagText.trim() ? [customTagText.trim()] : []),
+        ]
+      : tags;
+
     if (branchingData) {
-      onSubmit(cleanTopic, cleanOptions, preferences.trim(), finalTag, branchingData.parentId, branchingData.branchedFromOption, optionImages);
+      onSubmit(
+        cleanTopic,
+        cleanOptions,
+        preferences.trim(),
+        finalTags,
+        branchingData.parentId,
+        branchingData.branchedFromOption,
+        optionImages,
+      );
     } else {
-      onSubmit(cleanTopic, cleanOptions, preferences.trim(), finalTag, undefined, undefined, optionImages);
+      onSubmit(
+        cleanTopic,
+        cleanOptions,
+        preferences.trim(),
+        finalTags,
+        undefined,
+        undefined,
+        optionImages,
+      );
     }
   };
 
   if (branchingData?.isLoading) {
     return (
-      <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-8 sm:p-12 text-center space-y-6 shadow-sm flex flex-col items-center justify-center min-h-[400px]" id="branching-loader">
+      <div
+        className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-8 sm:p-12 text-center space-y-6 shadow-sm flex flex-col items-center justify-center min-h-[400px]"
+        id="branching-loader"
+      >
         <div className="relative">
           <div className="w-16 h-16 rounded-full border-4 border-indigo-100 dark:border-slate-800 border-t-indigo-600 dark:border-t-indigo-500 animate-spin"></div>
           <Sparkles className="w-6 h-6 text-indigo-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-bounce" />
         </div>
         <div className="space-y-3 max-w-md">
-          <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">AI Branch Mapping in Progress...</h3>
+          <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">
+            AI Branch Mapping in Progress...
+          </h3>
           <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-            Gemini is evaluating your choice <span className="text-indigo-600 dark:text-indigo-400 font-extrabold">&ldquo;{branchingData.branchedFromOption}&rdquo;</span> from the parent dilemma and formulating relevant sub-options, custom trade-offs, and critical criteria to expand your decision tree.
+            Gemini is evaluating your choice{" "}
+            <span className="text-indigo-600 dark:text-indigo-400 font-extrabold">
+              &ldquo;{branchingData.branchedFromOption}&rdquo;
+            </span>{" "}
+            from the parent dilemma and formulating relevant sub-options, custom
+            trade-offs, and critical criteria to expand your decision tree.
           </p>
         </div>
         {onCancelBranching && (
@@ -747,16 +884,27 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
   }
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-6 md:p-8 shadow-sm transition-colors duration-200" id="decision-form-container">
+    <div
+      className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-6 md:p-8 shadow-sm transition-colors duration-200"
+      id="decision-form-container"
+    >
       {branchingData && (
-        <div className="mb-6 p-4 bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/40 rounded-xl flex items-start gap-3.5 relative" id="branching-active-banner">
+        <div
+          className="mb-6 p-4 bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/40 rounded-xl flex items-start gap-3.5 relative"
+          id="branching-active-banner"
+        >
           <div className="p-2 bg-indigo-500/10 rounded-lg shrink-0 text-indigo-600 dark:text-indigo-400">
             <GitFork className="w-5 h-5 rotate-180" />
           </div>
           <div className="flex-1 space-y-1 pr-6">
-            <span className="text-[10px] font-bold tracking-wider text-indigo-600 dark:text-indigo-400 uppercase">Sub-Dilemma Exploration</span>
+            <span className="text-[10px] font-bold tracking-wider text-indigo-600 dark:text-indigo-400 uppercase">
+              Sub-Dilemma Exploration
+            </span>
             <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100">
-              Branching off Option: <span className="text-indigo-600 dark:text-indigo-400 font-extrabold">&ldquo;{branchingData.branchedFromOption}&rdquo;</span>
+              Branching off Option:{" "}
+              <span className="text-indigo-600 dark:text-indigo-400 font-extrabold">
+                &ldquo;{branchingData.branchedFromOption}&rdquo;
+              </span>
             </h4>
             <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
               Parent Dilemma: &ldquo;{branchingData.parentTopic}&rdquo;
@@ -776,12 +924,15 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
       )}
 
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 tracking-tight flex items-center gap-2" id="form-heading">
+        <h2
+          className="text-xl font-semibold text-slate-900 dark:text-slate-100 tracking-tight flex items-center gap-2"
+          id="form-heading"
+        >
           <Sparkles className="w-5 h-5 text-indigo-600 dark:text-indigo-400 animate-pulse" />
           {branchingData ? "Define the Sub-Dilemma" : "State Your Dilemma"}
         </h2>
         <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-          {branchingData 
+          {branchingData
             ? "Drill down into this option to analyze the secondary choice or next steps."
             : "Tell us what you're choosing between, and the AI Tiebreaker will build a personalized, analytical decision package."}
         </p>
@@ -789,7 +940,10 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
 
       {/* Mode Switcher Tabs */}
       {!branchingData && (
-        <div className="mb-6 flex bg-slate-100 dark:bg-slate-950 p-1 rounded-xl border border-slate-200/50 dark:border-slate-800/85 max-w-md" id="form-mode-tabs">
+        <div
+          className="mb-6 flex bg-slate-100 dark:bg-slate-950 p-1 rounded-xl border border-slate-200/50 dark:border-slate-800/85 max-w-md"
+          id="form-mode-tabs"
+        >
           <button
             type="button"
             onClick={() => {
@@ -845,8 +999,13 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
 
       {/* Preset Badges */}
       {!branchingData && formMode === "structured" && (
-        <div className="mb-6 flex flex-wrap items-center gap-2" id="preset-container">
-          <span className="text-xs font-medium text-slate-400 dark:text-slate-500 mr-1 uppercase tracking-wider">Presets:</span>
+        <div
+          className="mb-6 flex flex-wrap items-center gap-2"
+          id="preset-container"
+        >
+          <span className="text-xs font-medium text-slate-400 dark:text-slate-500 mr-1 uppercase tracking-wider">
+            Presets:
+          </span>
           {PRESETS.map((preset, index) => (
             <button
               key={index}
@@ -864,10 +1023,16 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
       {formMode === "voice" && !branchingData ? (
         <div className="space-y-6" id="voice-narration-console">
           {decodingError && (
-            <div className="p-3.5 bg-rose-50 dark:bg-rose-950/20 border border-rose-200 dark:border-rose-900/50 rounded-xl flex items-start gap-2.5 text-xs text-rose-800 dark:text-rose-200" id="decoding-error-alert">
+            <div
+              className="p-3.5 bg-rose-50 dark:bg-rose-950/20 border border-rose-200 dark:border-rose-900/50 rounded-xl flex items-start gap-2.5 text-xs text-rose-800 dark:text-rose-200"
+              id="decoding-error-alert"
+            >
               <AlertCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
               <div className="flex-1">
-                <span className="font-semibold text-rose-900 dark:text-rose-100">Decoding Error:</span> {decodingError}
+                <span className="font-semibold text-rose-900 dark:text-rose-100">
+                  Decoding Error:
+                </span>{" "}
+                {decodingError}
               </div>
               <button
                 type="button"
@@ -880,7 +1045,10 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
           )}
 
           {/* Instructions & Interactive Microphone */}
-          <div className="bg-slate-50/50 dark:bg-slate-950/35 border border-slate-150 dark:border-slate-800/60 rounded-2xl p-6 flex flex-col items-center justify-center text-center space-y-4" id="microphone-console">
+          <div
+            className="bg-slate-50/50 dark:bg-slate-950/35 border border-slate-150 dark:border-slate-800/60 rounded-2xl p-6 flex flex-col items-center justify-center text-center space-y-4"
+            id="microphone-console"
+          >
             <div className="relative">
               {/* Animated background rings when listening */}
               {isDilemmaListening && (
@@ -899,7 +1067,11 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
                     : "bg-indigo-600 text-white hover:bg-indigo-700 shadow-indigo-600/20"
                 }`}
                 id="main-voice-record-btn"
-                title={isDilemmaListening ? "Click to stop recording" : "Click to start recording"}
+                title={
+                  isDilemmaListening
+                    ? "Click to stop recording"
+                    : "Click to start recording"
+                }
               >
                 {isDilemmaListening ? (
                   <MicOff className="w-8 h-8" />
@@ -911,7 +1083,9 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
 
             <div className="space-y-1">
               <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">
-                {isDilemmaListening ? "Listening continuously..." : "Click to narrate your dilemma"}
+                {isDilemmaListening
+                  ? "Listening continuously..."
+                  : "Click to narrate your dilemma"}
               </h3>
               <p className="text-xs text-slate-400 dark:text-slate-500 max-w-sm leading-relaxed">
                 {isDilemmaListening
@@ -923,7 +1097,10 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
 
           {/* Transcript Text Box */}
           <div className="space-y-2" id="voice-transcript-container">
-            <label htmlFor="voice-dilemma-transcript" className="block text-sm font-semibold text-slate-800 dark:text-slate-200">
+            <label
+              htmlFor="voice-dilemma-transcript"
+              className="block text-sm font-semibold text-slate-800 dark:text-slate-200"
+            >
               Your Spoken Transcript
             </label>
             <textarea
@@ -937,7 +1114,11 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
             />
             <div className="flex justify-between items-center">
               <span className="text-[10px] text-slate-400 dark:text-slate-500 font-mono">
-                {voiceDilemmaTranscript.trim().split(/\s+/).filter(Boolean).length} words
+                {
+                  voiceDilemmaTranscript.trim().split(/\s+/).filter(Boolean)
+                    .length
+                }{" "}
+                words
               </span>
               {voiceDilemmaTranscript && (
                 <button
@@ -993,10 +1174,16 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
       ) : formMode === "visual" && !branchingData ? (
         <div className="space-y-6" id="visual-scanner-console">
           {visualDecodingError && (
-            <div className="p-3.5 bg-rose-50 dark:bg-rose-950/20 border border-rose-200 dark:border-rose-900/50 rounded-xl flex items-start gap-2.5 text-xs text-rose-800 dark:text-rose-200" id="visual-decoding-error-alert">
+            <div
+              className="p-3.5 bg-rose-50 dark:bg-rose-950/20 border border-rose-200 dark:border-rose-900/50 rounded-xl flex items-start gap-2.5 text-xs text-rose-800 dark:text-rose-200"
+              id="visual-decoding-error-alert"
+            >
               <AlertCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
               <div className="flex-1">
-                <span className="font-semibold text-rose-900 dark:text-rose-100">Analysis Error:</span> {visualDecodingError}
+                <span className="font-semibold text-rose-900 dark:text-rose-100">
+                  Analysis Error:
+                </span>{" "}
+                {visualDecodingError}
               </div>
               <button
                 type="button"
@@ -1012,7 +1199,10 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <label className="block text-sm font-semibold text-slate-800 dark:text-slate-200">
-                Upload Dilemma Photos <span className="text-xs font-normal text-slate-400 dark:text-slate-500">(1 to 4 photos)</span>
+                Upload Dilemma Photos{" "}
+                <span className="text-xs font-normal text-slate-400 dark:text-slate-500">
+                  (1 to 4 photos)
+                </span>
               </label>
               {visualDilemmaImages.length > 0 && (
                 <button
@@ -1025,17 +1215,20 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
                 </button>
               )}
             </div>
-            
+
             <div
               onDragOver={(e) => e.preventDefault()}
               onDrop={(e) => {
                 e.preventDefault();
                 const files = e.dataTransfer.files;
-                if (files && files.length > 0) handleVisualDilemmaImageUpload(files);
+                if (files && files.length > 0)
+                  handleVisualDilemmaImageUpload(files);
               }}
               className="border-2 border-dashed border-slate-300 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-400 rounded-2xl p-6 flex flex-col items-center justify-center text-center space-y-3 bg-slate-50/50 dark:bg-slate-950/20 transition-colors cursor-pointer relative"
               onClick={() => {
-                const input = document.getElementById("visual-dilemma-file-input");
+                const input = document.getElementById(
+                  "visual-dilemma-file-input",
+                );
                 if (input) input.click();
               }}
             >
@@ -1047,7 +1240,8 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
                 className="hidden"
                 onChange={(e) => {
                   const files = e.target.files;
-                  if (files && files.length > 0) handleVisualDilemmaImageUpload(files);
+                  if (files && files.length > 0)
+                    handleVisualDilemmaImageUpload(files);
                 }}
               />
               <div className="p-3 bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 rounded-full">
@@ -1055,17 +1249,24 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
               </div>
               <div className="space-y-1">
                 <p className="text-xs font-bold text-slate-800 dark:text-slate-200">
-                  Drag and drop up to 4 images here, or <span className="text-indigo-600 dark:text-indigo-400 hover:underline">browse</span>
+                  Drag and drop up to 4 images here, or{" "}
+                  <span className="text-indigo-600 dark:text-indigo-400 hover:underline">
+                    browse
+                  </span>
                 </p>
                 <p className="text-[11px] text-slate-400 dark:text-slate-500 leading-relaxed max-w-sm">
-                  Tip: Upload separate photos of each option (e.g. choice A and choice B) and Gemini will automatically extract and map them!
+                  Tip: Upload separate photos of each option (e.g. choice A and
+                  choice B) and Gemini will automatically extract and map them!
                 </p>
               </div>
             </div>
 
             {/* Uploaded Images Grid */}
             {visualDilemmaImages.length > 0 && (
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2" id="uploaded-images-grid">
+              <div
+                className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2"
+                id="uploaded-images-grid"
+              >
                 {visualDilemmaImages.map((img, idx) => (
                   <div
                     key={idx}
@@ -1079,13 +1280,15 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
                     <div className="absolute top-1.5 left-1.5 z-10 px-1.5 py-0.5 bg-black/70 backdrop-blur-xs text-[9px] font-bold text-white rounded-md">
                       Photo {idx + 1}
                     </div>
-                    
+
                     {/* Hover delete button */}
                     <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
-                        setVisualDilemmaImages((prev) => prev.filter((_, i) => i !== idx));
+                        setVisualDilemmaImages((prev) =>
+                          prev.filter((_, i) => i !== idx),
+                        );
                       }}
                       className="absolute top-1.5 right-1.5 p-1 bg-rose-600 text-white rounded-lg opacity-90 hover:opacity-100 hover:scale-105 transition-all shadow-xs cursor-pointer"
                       title="Remove image"
@@ -1099,7 +1302,9 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
                 {visualDilemmaImages.length < 4 && (
                   <div
                     onClick={() => {
-                      const input = document.getElementById("visual-dilemma-file-input");
+                      const input = document.getElementById(
+                        "visual-dilemma-file-input",
+                      );
                       if (input) input.click();
                     }}
                     className="border border-dashed border-slate-300 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-400 rounded-xl aspect-square flex flex-col items-center justify-center text-center bg-slate-50/30 dark:bg-slate-950/10 cursor-pointer transition-colors"
@@ -1116,8 +1321,14 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
 
           {/* Optional Notes Container */}
           <div className="space-y-2">
-            <label htmlFor="visual-dilemma-notes" className="block text-sm font-semibold text-slate-800 dark:text-slate-200">
-              Descriptive Notes <span className="text-xs font-normal text-slate-400 dark:text-slate-500">(Optional)</span>
+            <label
+              htmlFor="visual-dilemma-notes"
+              className="block text-sm font-semibold text-slate-800 dark:text-slate-200"
+            >
+              Descriptive Notes{" "}
+              <span className="text-xs font-normal text-slate-400 dark:text-slate-500">
+                (Optional)
+              </span>
             </label>
             <textarea
               id="visual-dilemma-notes"
@@ -1171,10 +1382,22 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6" id="dilemma-form">
           {showDecodeSuccessAlert && (
-            <div className="p-3.5 bg-emerald-50 dark:bg-emerald-950/25 border border-emerald-200 dark:border-emerald-900/40 rounded-xl flex items-start gap-2.5 text-xs text-emerald-800 dark:text-emerald-200 animate-fadeIn" id="decode-success-alert">
+            <div
+              className="p-3.5 bg-emerald-50 dark:bg-emerald-950/25 border border-emerald-200 dark:border-emerald-900/40 rounded-xl flex items-start gap-2.5 text-xs text-emerald-800 dark:text-emerald-200 animate-fadeIn"
+              id="decode-success-alert"
+            >
               <Sparkles className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5 animate-bounce" />
               <div className="flex-1">
-                <span className="font-bold text-emerald-950 dark:text-emerald-300">AI Decoder Success:</span> We have parsed your spoken dilemma! We extracted the decision, identified the options, and summarized your preferences. Feel free to refine any fields below, upload photos, or click <strong className="font-bold text-indigo-600 dark:text-indigo-400">"Break the Tie"</strong> to analyze!
+                <span className="font-bold text-emerald-950 dark:text-emerald-300">
+                  AI Decoder Success:
+                </span>{" "}
+                We have parsed your spoken dilemma! We extracted the decision,
+                identified the options, and summarized your preferences. Feel
+                free to refine any fields below, upload photos, or click{" "}
+                <strong className="font-bold text-indigo-600 dark:text-indigo-400">
+                  "Break the Tie"
+                </strong>{" "}
+                to analyze!
               </div>
               <button
                 type="button"
@@ -1185,300 +1408,349 @@ export default function DecisionForm({ onSubmit, isLoading, branchingData, onCan
               </button>
             </div>
           )}
-        {speechError && (
-          <div className="p-3.5 bg-rose-50 dark:bg-rose-950/20 border border-rose-200 dark:border-rose-900/50 rounded-xl flex items-start gap-2.5 text-xs text-rose-800 dark:text-rose-200" id="speech-error-alert">
-            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
-            <div className="flex-1">
-              <span className="font-semibold text-rose-900 dark:text-rose-100">Speech Input Notice:</span> {speechError}
-            </div>
-            <button
-              type="button"
-              onClick={() => setSpeechError(null)}
-              className="p-1 hover:bg-rose-100 dark:hover:bg-rose-950/50 rounded-md transition-colors text-rose-500 shrink-0 cursor-pointer"
+          {speechError && (
+            <div
+              className="p-3.5 bg-rose-50 dark:bg-rose-950/20 border border-rose-200 dark:border-rose-900/50 rounded-xl flex items-start gap-2.5 text-xs text-rose-800 dark:text-rose-200"
+              id="speech-error-alert"
             >
-              <X className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        )}
+              <AlertCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+              <div className="flex-1">
+                <span className="font-semibold text-rose-900 dark:text-rose-100">
+                  Speech Input Notice:
+                </span>{" "}
+                {speechError}
+              </div>
+              <button
+                type="button"
+                onClick={() => setSpeechError(null)}
+                className="p-1 hover:bg-rose-100 dark:hover:bg-rose-950/50 rounded-md transition-colors text-rose-500 shrink-0 cursor-pointer"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          )}
 
-        {/* Topic Input */}
-        <div id="topic-group">
-          <label htmlFor="topic-input" className="block text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">
-            What decision are you trying to make?
-          </label>
-          <div className="relative flex items-center">
-            <input
-              id="topic-input"
-              type="text"
-              required
-              disabled={isLoading}
-              placeholder="e.g., Should we move our office to Austin, Texas or remain in Boston?"
-              value={topic}
-              onChange={(e) => setTopic(e.target.value)}
-              className="w-full pl-4 pr-11 py-3 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 text-slate-800 dark:text-slate-100 transition-all text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500 bg-slate-50/50 dark:bg-slate-950/40"
-            />
-            {isSpeechSupported && (
-              <div className="absolute right-2.5">
-                <VoiceInputButton
-                  onTranscript={handleTopicTranscript}
-                  onError={setSpeechError}
-                  isLoading={isLoading}
-                  tooltip="Speak your dilemma"
-                  id="voice-btn-topic"
-                  currentValue={topic}
+          {/* Topic Input */}
+          <div id="topic-group">
+            <label
+              htmlFor="topic-input"
+              className="block text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2"
+            >
+              What decision are you trying to make?
+            </label>
+            <div className="relative flex items-center">
+              <input
+                id="topic-input"
+                type="text"
+                required
+                disabled={isLoading}
+                placeholder="e.g., Should we move our office to Austin, Texas or remain in Boston?"
+                value={topic}
+                onChange={(e) => setTopic(e.target.value)}
+                className="w-full pl-4 pr-11 py-3 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 text-slate-800 dark:text-slate-100 transition-all text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500 bg-slate-50/50 dark:bg-slate-950/40"
+              />
+              {isSpeechSupported && (
+                <div className="absolute right-2.5">
+                  <VoiceInputButton
+                    onTranscript={handleTopicTranscript}
+                    onError={setSpeechError}
+                    isLoading={isLoading}
+                    tooltip="Speak your dilemma"
+                    id="voice-btn-topic"
+                    currentValue={topic}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Options Input */}
+          <div id="options-group">
+            <div className="flex justify-between items-center mb-2">
+              <label className="text-sm font-semibold text-slate-800 dark:text-slate-200">
+                What options are you considering?
+              </label>
+              <span className="text-xs text-slate-400 dark:text-slate-500">
+                (2 - 5 options)
+              </span>
+            </div>
+
+            <div className="space-y-4" id="options-list">
+              {options.map((option, index) => (
+                <div
+                  key={index}
+                  className="space-y-2 p-3.5 bg-slate-50/40 dark:bg-slate-900/40 border border-slate-150 dark:border-slate-800/80 rounded-xl"
+                  id={`option-row-${index}`}
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="flex-1 relative flex items-center">
+                      <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400 dark:text-slate-500 bg-slate-150 dark:bg-slate-800 rounded-md w-6 h-6 flex items-center justify-center">
+                        {index + 1}
+                      </span>
+                      <input
+                        type="text"
+                        required
+                        disabled={isLoading}
+                        placeholder={`e.g., Option ${index + 1}`}
+                        value={option}
+                        onChange={(e) =>
+                          handleOptionChange(index, e.target.value)
+                        }
+                        className="w-full pl-12 pr-11 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 text-slate-800 dark:text-slate-100 transition-all text-sm bg-white dark:bg-slate-950/40"
+                        id={`option-input-${index}`}
+                      />
+                      {isSpeechSupported && (
+                        <div className="absolute right-2">
+                          <VoiceInputButton
+                            onTranscript={(text) =>
+                              handleOptionTranscript(index, text)
+                            }
+                            onError={setSpeechError}
+                            isLoading={isLoading}
+                            tooltip={`Speak Option ${index + 1}`}
+                            id={`voice-btn-option-${index}`}
+                            currentValue={option}
+                          />
+                        </div>
+                      )}
+                    </div>
+                    {options.length > 2 && (
+                      <button
+                        type="button"
+                        onClick={() => removeOptionField(index)}
+                        disabled={isLoading}
+                        className="p-2.5 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/25 rounded-xl transition-colors cursor-pointer"
+                        title="Remove Option"
+                        id={`remove-option-btn-${index}`}
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Option Image upload / preview container */}
+                  <div className="pl-12 flex flex-wrap items-center gap-3">
+                    {!optionImages[index] ? (
+                      <label className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-slate-950 hover:bg-slate-50 dark:hover:bg-slate-900 border border-slate-250 dark:border-slate-800/80 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-350 cursor-pointer transition-colors shadow-3xs hover:border-indigo-500/50">
+                        <UploadCloud className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
+                        <span>Attach Option Image</span>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          className="hidden"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) handleImageUpload(index, file);
+                          }}
+                        />
+                      </label>
+                    ) : (
+                      <div className="flex items-center gap-3 bg-white dark:bg-slate-950 px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800/80 shadow-3xs">
+                        <img
+                          src={optionImages[index] || ""}
+                          alt={`Option ${index + 1} Preview`}
+                          className="w-10 h-10 object-cover rounded-md border border-slate-200 dark:border-slate-800"
+                        />
+                        <div className="text-[10px] space-y-0.5">
+                          <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1 font-bold">
+                            <Check className="w-3 h-3 text-emerald-500" /> Image
+                            Loaded
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const updated = [...optionImages];
+                              updated[index] = null;
+                              setOptionImages(updated);
+                            }}
+                            className="text-rose-500 dark:text-rose-400 hover:underline cursor-pointer flex items-center gap-0.5 font-bold"
+                          >
+                            <Trash2 className="w-3 h-3 inline" /> Remove
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                    <span className="text-[10px] text-slate-400 dark:text-slate-500 italic">
+                      (Optional: Provide photo of this option for Google visual
+                      detection)
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {options.length < 5 && (
+              <button
+                type="button"
+                onClick={addOptionField}
+                disabled={isLoading}
+                className="mt-3.5 flex items-center gap-1.5 text-xs text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold cursor-pointer"
+                id="add-option-btn"
+              >
+                <Plus className="w-4 h-4" />
+                Add Option
+              </button>
+            )}
+          </div>
+
+          {/* Tag / Category Selector */}
+          <div
+            className="border-t border-slate-100 dark:border-slate-800/80 pt-5"
+            id="tag-selector-group"
+          >
+            <label className="block text-sm font-semibold text-slate-800 dark:text-slate-200 mb-3">
+              Choose Categories / Tags (Multi-Select)
+            </label>
+            <div className="flex flex-wrap gap-2 mb-3" id="tag-pills-container">
+              {STANDARD_TAGS.map((t) => {
+                const isActive = tags.includes(t);
+                const {
+                  activeBg,
+                  bg,
+                  hoverBg,
+                  icon: Icon,
+                } = getTagStyleAndIcon(t);
+                return (
+                  <button
+                    key={t}
+                    type="button"
+                    onClick={() => {
+                      setTags((prev) =>
+                        prev.includes(t)
+                          ? prev.filter((tag) => tag !== t)
+                          : [...prev.filter((tag) => tag !== "Custom"), t],
+                      );
+                      setCustomTagText("");
+                    }}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all duration-150 cursor-pointer ${
+                      isActive ? activeBg : `${bg} ${hoverBg}`
+                    }`}
+                    id={`tag-btn-${t.toLowerCase()}`}
+                  >
+                    <Icon className="w-3.5 h-3.5" />
+                    {t}
+                  </button>
+                );
+              })}
+              <button
+                type="button"
+                onClick={() => {
+                  setTags((prev) =>
+                    prev.includes("Custom")
+                      ? prev.filter((t) => t !== "Custom")
+                      : [...prev.filter((t) => t !== "Custom"), "Custom"],
+                  );
+                }}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all duration-150 cursor-pointer ${
+                  tags.includes("Custom")
+                    ? "bg-indigo-600 text-white border-indigo-600 dark:bg-indigo-500 dark:border-indigo-500"
+                    : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-150 dark:hover:bg-slate-750"
+                }`}
+                id="tag-btn-custom"
+              >
+                <TagIcon className="w-3.5 h-3.5" />
+                Custom...
+              </button>
+            </div>
+
+            {tags.includes("Custom") && (
+              <div className="mt-2" id="custom-tag-input-container">
+                <input
+                  type="text"
+                  maxLength={20}
+                  disabled={isLoading}
+                  placeholder="Type your custom category/tag (e.g., Shopping, Family)"
+                  value={customTagText}
+                  onChange={(e) => setCustomTagText(e.target.value)}
+                  className="w-full max-w-xs px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 text-slate-800 dark:text-slate-100 transition-all text-sm bg-slate-50/50 dark:bg-slate-950/40"
+                  id="custom-tag-input"
                 />
               </div>
             )}
           </div>
-        </div>
 
-        {/* Options Input */}
-        <div id="options-group">
-          <div className="flex justify-between items-center mb-2">
-            <label className="text-sm font-semibold text-slate-800 dark:text-slate-200">
-              What options are you considering?
-            </label>
-            <span className="text-xs text-slate-400 dark:text-slate-500">(2 - 5 options)</span>
-          </div>
+          {/* Collapsible Preferences */}
+          <div
+            className="border-t border-slate-100 dark:border-slate-800/80 pt-4"
+            id="preferences-group"
+          >
+            <button
+              type="button"
+              onClick={() => setShowPrefs(!showPrefs)}
+              className="flex items-center justify-between w-full text-left font-semibold text-slate-800 dark:text-slate-200 text-sm hover:text-slate-900 dark:hover:text-slate-100 cursor-pointer"
+              id="toggle-prefs-btn"
+            >
+              <span className="flex items-center gap-1.5">
+                Personal concerns, weights or preferences?
+                <span className="text-xs font-normal text-slate-400 dark:text-slate-500">
+                  (Optional)
+                </span>
+              </span>
+              {showPrefs ? (
+                <ChevronUp className="w-4 h-4 text-slate-400" />
+              ) : (
+                <ChevronDown className="w-4 h-4 text-slate-400" />
+              )}
+            </button>
 
-          <div className="space-y-4" id="options-list">
-            {options.map((option, index) => (
-              <div
-                key={index}
-                className="space-y-2 p-3.5 bg-slate-50/40 dark:bg-slate-900/40 border border-slate-150 dark:border-slate-800/80 rounded-xl"
-                id={`option-row-${index}`}
-              >
-                <div className="flex items-center gap-2">
-                  <div className="flex-1 relative flex items-center">
-                    <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400 dark:text-slate-500 bg-slate-150 dark:bg-slate-800 rounded-md w-6 h-6 flex items-center justify-center">
-                      {index + 1}
-                    </span>
-                    <input
-                      type="text"
-                      required
-                      disabled={isLoading}
-                      placeholder={`e.g., Option ${index + 1}`}
-                      value={option}
-                      onChange={(e) => handleOptionChange(index, e.target.value)}
-                      className="w-full pl-12 pr-11 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 text-slate-800 dark:text-slate-100 transition-all text-sm bg-white dark:bg-slate-950/40"
-                      id={`option-input-${index}`}
-                    />
-                    {isSpeechSupported && (
-                      <div className="absolute right-2">
-                        <VoiceInputButton
-                          onTranscript={(text) => handleOptionTranscript(index, text)}
-                          onError={setSpeechError}
-                          isLoading={isLoading}
-                          tooltip={`Speak Option ${index + 1}`}
-                          id={`voice-btn-option-${index}`}
-                          currentValue={option}
-                        />
-                      </div>
-                    )}
-                  </div>
-                  {options.length > 2 && (
-                    <button
-                      type="button"
-                      onClick={() => removeOptionField(index)}
-                      disabled={isLoading}
-                      className="p-2.5 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/25 rounded-xl transition-colors cursor-pointer"
-                      title="Remove Option"
-                      id={`remove-option-btn-${index}`}
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
-                  )}
-                </div>
-
-                {/* Option Image upload / preview container */}
-                <div className="pl-12 flex flex-wrap items-center gap-3">
-                  {!optionImages[index] ? (
-                    <label className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-slate-950 hover:bg-slate-50 dark:hover:bg-slate-900 border border-slate-250 dark:border-slate-800/80 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-350 cursor-pointer transition-colors shadow-3xs hover:border-indigo-500/50">
-                      <UploadCloud className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
-                      <span>Attach Option Image</span>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        className="hidden"
-                        onChange={(e) => {
-                          const file = e.target.files?.[0];
-                          if (file) handleImageUpload(index, file);
-                        }}
+            {showPrefs && (
+              <div className="mt-3" id="preferences-input-container">
+                <div className="relative flex items-start">
+                  <textarea
+                    placeholder="e.g., I value short commute times above all else. Budget is restricted to $2,000/month. We need this resolved by next month."
+                    rows={3}
+                    disabled={isLoading}
+                    value={preferences}
+                    onChange={(e) => setPreferences(e.target.value)}
+                    className="w-full pl-4 pr-11 py-3 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 text-slate-800 dark:text-slate-100 transition-all text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500 bg-slate-50/50 dark:bg-slate-950/40"
+                    id="preferences-textarea"
+                  />
+                  {isSpeechSupported && (
+                    <div className="absolute right-2.5 top-2.5">
+                      <VoiceInputButton
+                        onTranscript={handlePreferencesTranscript}
+                        onError={setSpeechError}
+                        isLoading={isLoading}
+                        tooltip="Speak your preferences"
+                        id="voice-btn-preferences"
+                        currentValue={preferences}
                       />
-                    </label>
-                  ) : (
-                    <div className="flex items-center gap-3 bg-white dark:bg-slate-950 px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800/80 shadow-3xs">
-                      <img
-                        src={optionImages[index] || ""}
-                        alt={`Option ${index + 1} Preview`}
-                        className="w-10 h-10 object-cover rounded-md border border-slate-200 dark:border-slate-800"
-                      />
-                      <div className="text-[10px] space-y-0.5">
-                        <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1 font-bold">
-                          <Check className="w-3 h-3 text-emerald-500" /> Image Loaded
-                        </span>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            const updated = [...optionImages];
-                            updated[index] = null;
-                            setOptionImages(updated);
-                          }}
-                          className="text-rose-500 dark:text-rose-400 hover:underline cursor-pointer flex items-center gap-0.5 font-bold"
-                        >
-                          <Trash2 className="w-3 h-3 inline" /> Remove
-                        </button>
-                      </div>
                     </div>
                   )}
-                  <span className="text-[10px] text-slate-400 dark:text-slate-500 italic">
-                    (Optional: Provide photo of this option for Google visual detection)
-                  </span>
                 </div>
+                <p className="text-xs text-slate-400 dark:text-slate-500 mt-1.5">
+                  Providing weights, goals, budgets, or emotional factors helps
+                  the AI weigh the pros/cons accurately according to your
+                  values.
+                </p>
               </div>
-            ))}
+            )}
           </div>
 
-          {options.length < 5 && (
-            <button
-              type="button"
-              onClick={addOptionField}
-              disabled={isLoading}
-              className="mt-3.5 flex items-center gap-1.5 text-xs text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold cursor-pointer"
-              id="add-option-btn"
-            >
-              <Plus className="w-4 h-4" />
-              Add Option
-            </button>
-          )}
-        </div>
-
-        {/* Tag / Category Selector */}
-        <div className="border-t border-slate-100 dark:border-slate-800/80 pt-5" id="tag-selector-group">
-          <label className="block text-sm font-semibold text-slate-800 dark:text-slate-200 mb-3">
-            Choose a Category / Tag
-          </label>
-          <div className="flex flex-wrap gap-2 mb-3" id="tag-pills-container">
-            {STANDARD_TAGS.map((t) => {
-              const isActive = tag === t;
-              const { activeBg, bg, hoverBg, icon: Icon } = getTagStyleAndIcon(t);
-              return (
-                <button
-                  key={t}
-                  type="button"
-                  onClick={() => setTag(t)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all duration-150 cursor-pointer ${
-                    isActive ? activeBg : `${bg} ${hoverBg}`
-                  }`}
-                  id={`tag-btn-${t.toLowerCase()}`}
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  {t}
-                </button>
-              );
-            })}
-            <button
-              type="button"
-              onClick={() => setTag("Custom")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all duration-150 cursor-pointer ${
-                tag === "Custom"
-                  ? "bg-indigo-600 text-white border-indigo-600 dark:bg-indigo-500 dark:border-indigo-500"
-                  : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-150 dark:hover:bg-slate-750"
-              }`}
-              id="tag-btn-custom"
-            >
-              <TagIcon className="w-3.5 h-3.5" />
-              Custom...
-            </button>
-          </div>
-
-          {tag === "Custom" && (
-            <div className="mt-2" id="custom-tag-input-container">
-              <input
-                type="text"
-                maxLength={20}
-                disabled={isLoading}
-                placeholder="Type your custom category/tag (e.g., Shopping, Family)"
-                value={customTagText}
-                onChange={(e) => setCustomTagText(e.target.value)}
-                className="w-full max-w-xs px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 text-slate-800 dark:text-slate-100 transition-all text-sm bg-slate-50/50 dark:bg-slate-950/40"
-                id="custom-tag-input"
-              />
-            </div>
-          )}
-        </div>
-
-        {/* Collapsible Preferences */}
-        <div className="border-t border-slate-100 dark:border-slate-800/80 pt-4" id="preferences-group">
+          {/* Submit Button */}
           <button
-            type="button"
-            onClick={() => setShowPrefs(!showPrefs)}
-            className="flex items-center justify-between w-full text-left font-semibold text-slate-800 dark:text-slate-200 text-sm hover:text-slate-900 dark:hover:text-slate-100 cursor-pointer"
-            id="toggle-prefs-btn"
+            type="submit"
+            disabled={isLoading || !topic.trim()}
+            className={`w-full py-3.5 px-6 rounded-xl font-semibold text-white flex items-center justify-center gap-2 shadow-sm transition-all text-sm cursor-pointer ${
+              isLoading || !topic.trim()
+                ? "bg-slate-300 dark:bg-slate-800 text-slate-500 dark:text-slate-650 cursor-not-allowed"
+                : "bg-indigo-600 hover:bg-indigo-700 hover:shadow-indigo-600/10 active:scale-[0.99] dark:bg-indigo-600 dark:hover:bg-indigo-500"
+            }`}
+            id="submit-decision-btn"
           >
-            <span className="flex items-center gap-1.5">
-              Personal concerns, weights or preferences?
-              <span className="text-xs font-normal text-slate-400 dark:text-slate-500">(Optional)</span>
-            </span>
-            {showPrefs ? <ChevronUp className="w-4 h-4 text-slate-400" /> : <ChevronDown className="w-4 h-4 text-slate-400" />}
+            {isLoading ? (
+              <>
+                <RefreshCw className="w-4 h-4 animate-spin" />
+                Running Multi-Criteria Analysis...
+              </>
+            ) : (
+              <>
+                <Sparkles className="w-4 h-4" />
+                Break the Tie
+              </>
+            )}
           </button>
-
-          {showPrefs && (
-            <div className="mt-3" id="preferences-input-container">
-              <div className="relative flex items-start">
-                <textarea
-                  placeholder="e.g., I value short commute times above all else. Budget is restricted to $2,000/month. We need this resolved by next month."
-                  rows={3}
-                  disabled={isLoading}
-                  value={preferences}
-                  onChange={(e) => setPreferences(e.target.value)}
-                  className="w-full pl-4 pr-11 py-3 rounded-xl border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 text-slate-800 dark:text-slate-100 transition-all text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500 bg-slate-50/50 dark:bg-slate-950/40"
-                  id="preferences-textarea"
-                />
-                {isSpeechSupported && (
-                  <div className="absolute right-2.5 top-2.5">
-                    <VoiceInputButton
-                      onTranscript={handlePreferencesTranscript}
-                      onError={setSpeechError}
-                      isLoading={isLoading}
-                      tooltip="Speak your preferences"
-                      id="voice-btn-preferences"
-                      currentValue={preferences}
-                    />
-                  </div>
-                )}
-              </div>
-              <p className="text-xs text-slate-400 dark:text-slate-500 mt-1.5">
-                Providing weights, goals, budgets, or emotional factors helps the AI weigh the pros/cons accurately according to your values.
-              </p>
-            </div>
-          )}
-        </div>
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          disabled={isLoading || !topic.trim()}
-          className={`w-full py-3.5 px-6 rounded-xl font-semibold text-white flex items-center justify-center gap-2 shadow-sm transition-all text-sm cursor-pointer ${
-            isLoading || !topic.trim()
-              ? "bg-slate-300 dark:bg-slate-800 text-slate-500 dark:text-slate-650 cursor-not-allowed"
-              : "bg-indigo-600 hover:bg-indigo-700 hover:shadow-indigo-600/10 active:scale-[0.99] dark:bg-indigo-600 dark:hover:bg-indigo-500"
-          }`}
-          id="submit-decision-btn"
-        >
-          {isLoading ? (
-            <>
-              <RefreshCw className="w-4 h-4 animate-spin" />
-              Running Multi-Criteria Analysis...
-            </>
-          ) : (
-            <>
-              <Sparkles className="w-4 h-4" />
-              Break the Tie
-            </>
-          )}
-        </button>
-      </form>
+        </form>
       )}
     </div>
   );

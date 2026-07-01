@@ -52,7 +52,7 @@ export interface SavedDecision {
   preferences: string;
   date: string;
   report: DecisionReport;
-  tag?: string;
+  tags?: string[];
   chatHistory?: ChatMessage[];
   parentId?: string;
   branchedFromOption?: string;
