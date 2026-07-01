@@ -835,7 +835,7 @@ export default function App() {
           </div>
 
           <div
-            className="w-full sm:w-auto flex flex-wrap gap-2 items-center justify-between sm:justify-end mt-1.5 sm:mt-0"
+            className="w-full sm:w-auto flex flex-wrap gap-1 sm:gap-1.5 items-center justify-start sm:justify-end mt-1 sm:mt-0"
             id="header-actions"
           >
             {isComparisonMode ? (
@@ -853,7 +853,7 @@ export default function App() {
             )}
             <button
               onClick={() => setIsCalmMode((prev) => !prev)}
-              className={`px-2.5 md:px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 whitespace-nowrap transition-all cursor-pointer ${
+              className={`px-2 md:px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-0.5 transition-all cursor-pointer ${
                 isCalmMode
                   ? "bg-emerald-600 text-white hover:bg-emerald-700"
                   : "border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
@@ -871,7 +871,7 @@ export default function App() {
               ? selectedComparisonIds.length > 0 && (
                   <button
                     onClick={() => setSelectedComparisonIds([])}
-                    className="px-2.5 md:px-3.5 py-1.5 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer"
+                    className="px-2 md:px-2.5 py-1.5 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-semibold flex items-center gap-0.5 transition-all cursor-pointer"
                     title="Reset Selection"
                     id="clear-comparison-btn"
                   >
@@ -883,16 +883,17 @@ export default function App() {
                   <>
                     <button
                       onClick={handlePrint}
-                      className="px-2.5 md:px-3.5 py-1.5 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer"
+                      className="px-2 md:px-2.5 py-1.5 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-semibold flex items-center gap-0.5 transition-all cursor-pointer"
                       title="Print Report as PDF"
                       id="print-report-btn"
                     >
                       <Printer className="w-3.5 h-3.5" />
                       <span className="hidden sm:inline">Print Report</span>
+                      <span className="inline sm:hidden">Print</span>
                     </button>
                     <button
                       onClick={handleShare}
-                      className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                      className={`px-2.5 md:px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-0.5 transition-all cursor-pointer ${
                         shareSuccess
                           ? "bg-emerald-600 text-white hover:bg-emerald-700"
                           : "bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm"
@@ -900,7 +901,12 @@ export default function App() {
                       id="share-report-btn"
                     >
                       <Share2 className="w-3.5 h-3.5" />
-                      <span>{shareSuccess ? "Copied!" : "Share Link"}</span>
+                      <span className="hidden sm:inline">
+                        {shareSuccess ? "Copied!" : "Share Link"}
+                      </span>
+                      <span className="inline sm:hidden">
+                        {shareSuccess ? "Copied!" : "Share"}
+                      </span>
                     </button>
                   </>
                 )}
