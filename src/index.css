@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-none {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+@media print {
+  /* Background resets */
+  html, body {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 12pt !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Structural layout resets */
+  #app-root-layout,
+  #main-content-wrapper,
+  #dashboard-content-panel,
+  #active-decision-report {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    position: relative !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  /* Elements to hide in print */
+  #sidebar-container,
+  #sidebar-backdrop,
+  #main-header,
+  #sidebar-toggle-btn,
+  #print-report-btn,
+  #share-report-btn,
+  #analysis-format-selector,
+  #theme-toggle-btn,
+  #active-decision-report > #summary-cards,
+  #tab-content-container {
+    display: none !important;
+  }
+
+  /* Page break helpers */
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .page-break-avoid {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Card and section layout print optimization */
+  .bg-white, .dark\:bg-slate-900 {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border-color: #e2e8f0 !important;
+  }
+
+  /* Maintain full visibility of SVGs & bullet indicators */
+  svg {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
