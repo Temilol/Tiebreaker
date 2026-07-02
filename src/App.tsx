@@ -1599,6 +1599,7 @@ export default function App() {
                 isLoading={isLoading}
                 branchingData={branchingData}
                 onCancelBranching={handleCancelBranching}
+                savedDecisions={savedDecisions}
               />
             </div>
           )}

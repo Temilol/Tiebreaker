@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
+import { SavedDecision } from "../types";
 import {
   Plus,
   Trash2,
@@ -140,6 +141,7 @@ interface DecisionFormProps {
     isLoading?: boolean;
   } | null;
   onCancelBranching?: () => void;
+  savedDecisions?: SavedDecision[];
 }
 
 const PRESETS = [
@@ -170,6 +172,39 @@ const PRESETS = [
     tag: "Tech",
   },
 ];
+
+// Builds preset shortcuts from the user's own decision history instead of
+// generic examples: top tags by frequency, seeded with the most recent
+// decision for that tag. Falls back to the static PRESETS for a new user
+// with no (taggable) history.
+function getPersonalizedPresets(savedDecisions: SavedDecision[]): (typeof PRESETS)[0][] {
+  const byTag = new Map<string, SavedDecision[]>();
+  for (const decision of savedDecisions) {
+    for (const tag of decision.tags || []) {
+      if (!byTag.has(tag)) byTag.set(tag, []);
+      byTag.get(tag)!.push(decision);
+    }
+  }
+
+  const topTags = [...byTag.entries()]
+    .sort((a, b) => b[1].length - a[1].length)
+    .slice(0, 3);
+
+  const personalized = topTags.map(([tag, decisions]) => {
+    const mostRecent = [...decisions].sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    )[0];
+    return {
+      title: mostRecent.topic,
+      topic: mostRecent.topic,
+      options: mostRecent.options,
+      preferences: mostRecent.preferences,
+      tag,
+    };
+  });
+
+  return personalized.length > 0 ? personalized : PRESETS;
+}
 
 const isSpeechSupported =
   typeof window !== "undefined" &&
@@ -349,7 +384,12 @@ export default function DecisionForm({
   isLoading,
   branchingData,
   onCancelBranching,
+  savedDecisions = [],
 }: DecisionFormProps) {
+  const presets = useMemo(
+    () => getPersonalizedPresets(savedDecisions),
+    [savedDecisions],
+  );
   const [topic, setTopic] = useState("");
   const [options, setOptions] = useState<string[]>(["", ""]);
   const [optionImages, setOptionImages] = useState<(string | null)[]>([
@@ -1006,13 +1046,14 @@ export default function DecisionForm({
           <span className="text-xs font-medium text-slate-400 dark:text-slate-500 mr-1 uppercase tracking-wider">
             Presets:
           </span>
-          {PRESETS.map((preset, index) => (
+          {presets.map((preset, index) => (
             <button
               key={index}
               type="button"
               id={`preset-btn-${index}`}
               onClick={() => loadPreset(preset)}
-              className="text-xs bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700/80 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-700 dark:text-slate-300 font-medium py-1.5 px-3 rounded-full transition-colors cursor-pointer"
+              title={preset.title}
+              className="text-xs max-w-[220px] truncate bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700/80 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-700 dark:text-slate-300 font-medium py-1.5 px-3 rounded-full transition-colors cursor-pointer"
             >
               {preset.title}
             </button>
