@@ -128,6 +128,7 @@ interface DecisionFormProps {
     parentId?: string,
     branchedFromOption?: string,
     optionImages?: (string | null)[],
+    decisionId?: string,
   ) => void;
   isLoading: boolean;
   branchingData?: {
@@ -141,7 +142,9 @@ interface DecisionFormProps {
     isLoading?: boolean;
   } | null;
   onCancelBranching?: () => void;
+  onCancelEdit?: () => void;
   savedDecisions?: SavedDecision[];
+  initialDecision?: SavedDecision;
 }
 
 const PRESETS = [
@@ -384,7 +387,9 @@ export default function DecisionForm({
   isLoading,
   branchingData,
   onCancelBranching,
+  onCancelEdit,
   savedDecisions = [],
+  initialDecision,
 }: DecisionFormProps) {
   const presets = useMemo(
     () => getPersonalizedPresets(savedDecisions),
@@ -401,6 +406,22 @@ export default function DecisionForm({
   const [tags, setTags] = useState<string[]>(["Personal"]);
   const [customTagText, setCustomTagText] = useState("");
   const [speechError, setSpeechError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!initialDecision) return;
+
+    setTopic(initialDecision.topic);
+    setOptions([...initialDecision.options]);
+    setOptionImages(
+      initialDecision.optionImages?.length
+        ? [...initialDecision.optionImages]
+        : new Array(initialDecision.options.length).fill(null),
+    );
+    setPreferences(initialDecision.preferences);
+    setShowPrefs(!!initialDecision.preferences);
+    setTags(initialDecision.tags && initialDecision.tags.length > 0 ? initialDecision.tags : ["Personal"]);
+    setCustomTagText("");
+  }, [initialDecision]);
 
   // Form Mode & Decoder states
   const [formMode, setFormMode] = useState<"structured" | "voice" | "visual">(
@@ -873,6 +894,7 @@ export default function DecisionForm({
         branchingData.parentId,
         branchingData.branchedFromOption,
         optionImages,
+        initialDecision?.id,
       );
     } else {
       onSubmit(
@@ -883,6 +905,7 @@ export default function DecisionForm({
         undefined,
         undefined,
         optionImages,
+        initialDecision?.id,
       );
     }
   };
@@ -963,19 +986,40 @@ export default function DecisionForm({
         </div>
       )}
 
-      <div className="mb-6">
-        <h2
-          className="text-xl font-semibold text-slate-900 dark:text-slate-100 tracking-tight flex items-center gap-2"
-          id="form-heading"
-        >
-          <Sparkles className="w-5 h-5 text-indigo-600 dark:text-indigo-400 animate-pulse" />
-          {branchingData ? "Define the Sub-Dilemma" : "State Your Dilemma"}
-        </h2>
-        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-          {branchingData
-            ? "Drill down into this option to analyze the secondary choice or next steps."
-            : "Tell us what you're choosing between, and the AI Tiebreaker will build a personalized, analytical decision package."}
-        </p>
+      <div className="mb-6 flex flex-col gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <h2
+              className="text-xl font-semibold text-slate-900 dark:text-slate-100 tracking-tight flex items-center gap-2"
+              id="form-heading"
+            >
+              <Sparkles className="w-5 h-5 text-indigo-600 dark:text-indigo-400 animate-pulse" />
+              {branchingData
+                ? "Define the Sub-Dilemma"
+                : initialDecision
+                  ? "Edit Dilemma"
+                  : "State Your Dilemma"}
+            </h2>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+              {branchingData
+                ? "Drill down into this option to analyze the secondary choice or next steps."
+                : initialDecision
+                  ? "Update the existing dilemma details and re-run the analysis."
+                  : "Tell us what you're choosing between, and the AI Tiebreaker will build a personalized, analytical decision package."}
+            </p>
+          </div>
+
+          {initialDecision && onCancelEdit && (
+            <button
+              type="button"
+              onClick={onCancelEdit}
+              className="self-start px-3 py-2 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all"
+              id="cancel-edit-btn"
+            >
+              Cancel Edit
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Mode Switcher Tabs */}

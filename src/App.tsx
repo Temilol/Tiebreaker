@@ -5,6 +5,7 @@ import {
   ChevronRight,
   Plus,
   Trash2,
+  Pencil,
   FileText,
   Scale,
   CheckCircle,
@@ -50,6 +51,8 @@ export default function App() {
     "tree",
     "chat",
   ] as const;
+  const [recentlyCreatedDecisionId, setRecentlyCreatedDecisionId] = useState<string | null>(null);
+  const [editDecisionId, setEditDecisionId] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [deletedDecision, setDeletedDecision] = useState<{
     decision: SavedDecision;
@@ -203,8 +206,24 @@ export default function App() {
 
   const handleNewDecisionClick = () => {
     setActiveId(null);
+    setEditDecisionId(null);
+    setRecentlyCreatedDecisionId(null);
     setError(null);
     setSidebarOpen(false);
+  };
+
+  const handleEditDecision = (id: string) => {
+    setEditDecisionId(id);
+    setActiveId(null);
+    setRecentlyCreatedDecisionId(null);
+    setError(null);
+    setSidebarOpen(false);
+  };
+
+  const handleCancelEdit = () => {
+    if (!editDecisionId) return;
+    setActiveId(editDecisionId);
+    setEditDecisionId(null);
   };
 
   const handleSelectDecision = (id: string) => {
@@ -221,6 +240,8 @@ export default function App() {
       });
     } else {
       setActiveId(id);
+      setEditDecisionId(null);
+      setRecentlyCreatedDecisionId(null);
       setError(null);
       setSidebarOpen(false);
     }
@@ -281,6 +302,7 @@ export default function App() {
     parentId?: string,
     branchedFromOption?: string,
     optionImages?: (string | null)[],
+    decisionId?: string,
   ) => {
     setIsLoading(true);
     setError(null);
@@ -302,49 +324,62 @@ export default function App() {
       }
 
       const report: DecisionReport = await response.json();
-      const newId = crypto.randomUUID();
+      const finalId = decisionId ?? crypto.randomUUID();
+      const dateString = new Date().toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
 
-      const newDecision: SavedDecision = {
-        id: newId,
+      const editedDecision = savedDecisions.find((d) => d.id === decisionId);
+      const decisionToSave: SavedDecision = {
+        id: finalId,
         topic,
         options,
         optionImages,
         preferences,
-        date: new Date().toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-          year: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-        }),
+        date: dateString,
         report,
         tags,
-        parentId,
-        branchedFromOption,
+        parentId: editedDecision?.parentId ?? parentId,
+        branchedFromOption: editedDecision?.branchedFromOption ?? branchedFromOption,
+        childIds: editedDecision?.childIds ?? [],
+        chatHistory: editedDecision?.chatHistory ?? [],
       };
 
-      let updated = [newDecision, ...savedDecisions];
+      let updated: SavedDecision[];
+      if (decisionId) {
+        updated = savedDecisions.map((d) =>
+          d.id === decisionId ? decisionToSave : d,
+        );
+      } else {
+        updated = [decisionToSave, ...savedDecisions];
 
-      // If this is a child decision, update parent's childIds too!
-      if (parentId) {
-        updated = updated.map((d) => {
-          if (d.id === parentId) {
-            const currentChildren = d.childIds || [];
-            return {
-              ...d,
-              childIds: currentChildren.includes(newId)
-                ? currentChildren
-                : [...currentChildren, newId],
-            };
-          }
-          return d;
-        });
+        // If this is a child decision, update parent's childIds too!
+        if (parentId) {
+          updated = updated.map((d) => {
+            if (d.id === parentId) {
+              const currentChildren = d.childIds || [];
+              return {
+                ...d,
+                childIds: currentChildren.includes(finalId)
+                  ? currentChildren
+                  : [...currentChildren, finalId],
+              };
+            }
+            return d;
+          });
+        }
       }
 
       saveDecisionsToStorage(updated);
-      setActiveId(newId);
+      setActiveId(finalId);
       setActiveTab("verdict");
       setBranchingData(null); // Clear branching context on success
+      setEditDecisionId(null);
+      setRecentlyCreatedDecisionId(decisionId ? null : finalId);
     } catch (err: any) {
       console.error("Submission error:", err);
       setError(
@@ -731,19 +766,34 @@ export default function App() {
                     </div>
                   </div>
                   {!isComparisonMode && (
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        handleDeleteDecision(decision.id, e);
-                      }}
-                      className="opacity-100 lg:opacity-0 lg:group-hover:opacity-100 p-1.5 text-slate-500 hover:text-rose-500 dark:hover:text-rose-400 rounded-lg transition-all cursor-pointer shrink-0 focus:opacity-100 focus:outline-none"
-                      title="Delete saved decision"
-                      id={`delete-saved-btn-${decision.id}`}
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
+                            <div className="flex items-center gap-1">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          handleEditDecision(decision.id);
+                        }}
+                        className="opacity-100 lg:opacity-0 lg:group-hover:opacity-100 p-1.5 text-slate-500 hover:text-indigo-400 dark:hover:text-indigo-300 rounded-lg transition-all cursor-pointer shrink-0 focus:opacity-100 focus:outline-none"
+                        title="Edit saved decision"
+                        id={`edit-saved-btn-${decision.id}`}
+                      >
+                        <Pencil className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          handleDeleteDecision(decision.id, e);
+                        }}
+                        className="opacity-100 lg:opacity-0 lg:group-hover:opacity-100 p-1.5 text-slate-500 hover:text-rose-500 dark:hover:text-rose-400 rounded-lg transition-all cursor-pointer shrink-0 focus:opacity-100 focus:outline-none"
+                        title="Delete saved decision"
+                        id={`delete-saved-btn-${decision.id}`}
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   )}
                 </div>
               );
@@ -862,6 +912,23 @@ export default function App() {
                       <span className="hidden sm:inline">Print Report</span>
                       <span className="inline sm:hidden">Print</span>
                     </button>
+                    {activeDecision &&
+                      activeDecision.id === recentlyCreatedDecisionId && (
+                        <button
+                          onClick={() => {
+                            setEditDecisionId(activeDecision.id);
+                            setActiveId(null);
+                            setRecentlyCreatedDecisionId(null);
+                          }}
+                          className="px-2 md:px-2.5 py-1.5 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-semibold flex items-center gap-0.5 transition-all cursor-pointer"
+                          title="Go back to edit this newly created dilemma"
+                          id="back-to-edit-btn"
+                        >
+                          <Pencil className="w-3.5 h-3.5" />
+                          <span className="hidden sm:inline">Edit Dilemma</span>
+                          <span className="inline sm:hidden">Edit</span>
+                        </button>
+                      )}
                   </>
                 )}
             <button
@@ -951,6 +1018,18 @@ export default function App() {
                 setActiveId(id);
               }}
             />
+          ) : editDecisionId && savedDecisions.find((d) => d.id === editDecisionId) ? (
+            <div className="max-w-3xl mx-auto space-y-8 py-4" id="edit-decision-wrapper">
+              <DecisionForm
+                onSubmit={handleFormSubmit}
+                isLoading={isLoading}
+                branchingData={branchingData}
+                onCancelBranching={handleCancelBranching}
+                savedDecisions={savedDecisions}
+                initialDecision={savedDecisions.find((d) => d.id === editDecisionId) || undefined}
+                onCancelEdit={handleCancelEdit}
+              />
+            </div>
           ) : activeDecision ? (
             /* Active Analysis Report */
             <div className="space-y-8" id="active-decision-report">
